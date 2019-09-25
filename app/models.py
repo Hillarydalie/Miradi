@@ -10,8 +10,17 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(255))
     image =db.Column(db.Photo)
 
+    def __repr__(self):
+        return f'User {self.username}'
+
 class Project(db.Model):
     __tablename__="projects"
+    id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(255), unique = True)
+    projectTimeline = db.Column(db.String(255))
+    image = db.Column(db.Photo)
+    description = db.Column(db.TextField)
+    
 
 class Comment(db.Model):
     __tablename__ = "comments"
