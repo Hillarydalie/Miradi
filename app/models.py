@@ -35,7 +35,7 @@ class User(UserMixin, db.Model):
     def user_loader(self, user_id):
         return User.query.get(user_id)
 
-class Projects(db.Model):
+class Project(db.Model):
     __tablename__="projects"
     id = db.Column(db.Integer, primary_key = False)
     name = db.Column(db.String(255), unique = False)
