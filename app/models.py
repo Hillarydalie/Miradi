@@ -9,9 +9,9 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), unique = True)
     password = db.Column(db.String(255), nullable=False)
-    image =db.Column(db.Photo)
+    image =db.Column(db.String(255))
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
-    projects = db.relatiships('Project', backref='user', lazy='dynamic')
+    projects = db.relationship('Project', backref='user', lazy='dynamic')
 
     def save(self):
         db.session.add(self)
@@ -40,11 +40,11 @@ class Project(db.Model):
     id = db.Column(db.Integer, primary_key = False)
     name = db.Column(db.String(255), unique = False)
     projectTimeline = db.Column(db.String(255), nullable=False)
-    image = db.Column(db.Photo)
+    image = db.Column(db.String(255))
     description = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
     comments = db.relationship('Comment', backref='project', lazy='dynamic')
-    
+
 
 class Comment(db.Model):
     __tablename__ = "comments"
