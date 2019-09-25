@@ -4,7 +4,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 class User(UserMixin, db.Model):
-    __tablename__="users"
+    __tablename__="users"#
+    id = d
 
 class Project(db.Model):
     __tablename__="projects"
