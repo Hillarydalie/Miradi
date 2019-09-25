@@ -1,8 +1,8 @@
 from flask import render_template, url_for,request,redirect, abort
 from flask_login import login_required,current_user, login_user, logout_user
 from . import main
-from .. import db, photos
-from .models import *
+from .. import db
+from app.models import *
 import requests
 
 @main.route('/')
