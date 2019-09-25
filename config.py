@@ -1,5 +1,5 @@
 class Config:
-
+  
     DEBUG="True"
     SECRET_KEY='jklsjgkljskljgiorjiosnklfiowpnbriorbo'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
