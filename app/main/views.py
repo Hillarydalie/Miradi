@@ -6,7 +6,7 @@ from .models import *
 import requests
 
 @main.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 
@@ -24,7 +24,7 @@ def projects():
             return render_template('projects.html', error=error)
         project = Projects(name=name,progress=progress,period=period,image=image,description=description, user_id=current_user.id)
         project.save()
-        return redirect(url_for('main.home'))
+        return redirect(url_for('main.index'))
     return render_template('projects.html')
 
 
