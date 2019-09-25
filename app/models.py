@@ -9,9 +9,9 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), unique = True)
     password = db.Column(db.String(255), nullable=False)
-    image =db.Column(db.String(255))
-    comments = db.relationship('Comment', backref='user', lazy='dynamic')
-    projects = db.relationship('Project', backref='user', lazy='dynamic')
+    user_image = db.Column(db.String(255))
+    comments = db.relationship('Comment', backref='miradi', lazy='dynamic')
+    projects = db.relationship('Project', backref='miradi', lazy='dynamic')
 
     def save(self):
         db.session.add(self)
@@ -37,14 +37,16 @@ class User(UserMixin, db.Model):
 
 class Project(db.Model):
     __tablename__="projects"
-    id = db.Column(db.Integer, primary_key = False)
+    id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(255), unique = False)
     projectTimeline = db.Column(db.String(255), nullable=False)
-    image = db.Column(db.String(255))
+    project_photo = db.Column(db.String(255))
     description = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    comments = db.relationship('Comment', backref='project', lazy='dynamic')
+    comments = db.relationship('Comment', backref='usercomment', lazy='dynamic')
 
+    def __repr__(self):
+        return f'Project {self.name}
 
 class Comment(db.Model):
     __tablename__ = "comments"
@@ -52,4 +54,7 @@ class Comment(db.Model):
     date = db.Column(db.DateTime, default=datetime.time)
     report = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    project_id = db.Colum(db.Integer, db.ForeignKey('projects.id'), nullable = False)
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable = False)
+
+    def __repr__(self):
+        return f'Comment {self.date}'
