@@ -13,6 +13,8 @@ class User(UserMixin, db.Model):
     comments = db.relationship('Comment', backref='user', lazy='dynamic')
     projects = db.relatiships('Project', backref='user', lazy='dynamic')
 
+    def save
+
     def __repr__(self):
         return f'User {self.username}'
 
