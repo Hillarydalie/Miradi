@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">Miradi</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,45 +19,48 @@
             </div>
         </div>
 </nav>
-
-<div class="container mt-5 ">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center card-header blue-gradient text-white">Register</h2>
-            <form action="/projects" method="POST">
-                {%if error%}
-                <div class="alert alert-danger">
-                    {{error}}
-                </div>
-                {%endif%}
-                <div class="form-group md-form">
-                        <i class="fa fa-user prefix"></i>
-                        <label for="username">Name</label>
-                        <input class="form-control" type="text" name="name" required>
+<div class="container-fluid pro">
+  <div class="overlay ">
+    <div class="container mt-5 pb-5">
+        <div class="row">
+            <div class="col-md-11 bg-white mt-5 ml-5">
+                <h2 class="text-center card-header blue-gradient text-white">Create Project</h2>
+                <form action="/projects" method="POST">
+                    {%if error%}
+                    <div class="alert alert-danger">
+                        {{error}}
                     </div>
-                <div class="form-group md-form">
-                    <i class="fa fa-user prefix"></i>
-                    <label for="email">Project Progress</label>
-                    <input class="form-control" type="text" name="progress" required>
-                </div>
-                <div class="form-group md-form">
-                    <i class="fa fa-lock prefix"></i>
-                    <label for="password">Project Timeline</label>
-                    <input class="form-control" type="text" name="projecttimeline" required>
-                </div>
-                <div class="form-group md-form">
-                    <i class="fa fa-lock prefix"></i>
-                    <!-- <label for="confirm-password">Project Photo</label> -->
-                    <input class="form-control" type="file" name="project_photo" required>
-                </div>
-                <div class="form-group md-form">
-                    <i class="fa fa-lock prefix"></i>
-                    <label for="confirm-password">Project Description</label>
-                    <textarea class="form-control" type="text" name="description" required></textarea>
-                </div>
-                <button class="btn btn-indigo w-100" type="submit">Register</button>
-            </form>
+                    {%endif%}
+                    <div class="form-group md-form">
+                            <i class="fa fa-user prefix"></i>
+                            <label for="username">Name</label>
+                            <input class="form-control" type="text" name="name" required>
+                        </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-spinner prefix"></i>
+                        <label for="email">Project Progress</label>
+                        <input class="form-control" type="text" name="progress" required>
+                    </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-calendar prefix"></i>
+                        <label for="password">Project Timeline</label>
+                        <input class="form-control" type="text" name="projecttimeline" required>
+                    </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-file-image prefix"></i>
+                        <!-- <label for="confirm-password">Project Photo</label> -->
+                        <input class="form-control" type="file" name="project_photo" required>
+                    </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-info prefix"></i>
+                        <label class="mt-5" for="confirm-password">Project Description</label>
+                        <textarea cols="60" rows="6" class="form-control" type="text" name="description" required></textarea>
+                    </div>
+                    <button class="btn btn-indigo w-100 pt-3 md-form" type="submit">Add Project</button>
+                </form>
+            </div>
         </div>
     </div>
+  </div>
 </div>
 {% endblock %}
