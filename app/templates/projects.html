@@ -1,9 +1,9 @@
-{% extend 'base.html' %}
+{% include 'base.html' %}
 
 
 {% block content %}
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-4">
 
     <form class="" action="/projects" method="post">
       <div class="card">
@@ -21,13 +21,13 @@
           <input class="form-control" type="text" name="progress" value="Progress" required>
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" name="period" value="Project Period" required>
+          <input class="form-control" type="text" name="projectTimeline" value="projectTimeline" required>
         </div>
         <div class="form-group">
           <input class="form-control" type="file" name="image" value="Project Image" required>
         </div>
         <div class="form-group">
-          <textarea class="form-control" type="text" name="description" value="Project Description" required></textarea>
+          <textarea class="form-control" type="text" name="description" placeholder="Project Description" required></textarea>
         </div>
       </div>
       <div class="card-footer">

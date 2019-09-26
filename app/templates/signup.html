@@ -3,7 +3,7 @@
 {{super()}}
 <div class="container">
     <h2 class="text-center">Sign-Up</h2>
-    <form action="/sign-up" method="POST">
+    <form action="/authentication/sign-up" method="POST">
         {%if error%}
         <div class="alert alert-danger">
             {{error}}
@@ -25,8 +25,7 @@
             <label for="confirm-password">Confirm Password</label>
             <input type="password" placeholder="confirm_password" name="confirm_password" class="form-control" required id="">
         </div>
-        <button class="btn" type="submit">Submit</button>
+        <button class="submit" type="submit">Submit</button>
     </form>
 </div>
 {%endblock%}
-    

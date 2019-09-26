@@ -15,11 +15,11 @@ def login():
         if user==None:
             error = "user with that username or password does not exist"
             return render_template('login.html',error=error)
-        is_correct_password == user.check_password(password)
+        is_correct_password = user.check_password(password)
         if is_correct_password == False:
             error = "Wrong password"
             return render_template('login.html',error=error)
-        
+
         login_user(user)
         return redirect(url_for('main.index'))
     return render_template('login.html')
@@ -37,7 +37,7 @@ def signup():
         if username==None or password==None or email==None or confirm_password==None:
             error = "Fill in the fields"
             return render_template('signup.html',error=error)
-        
+
         if " " in username:
             error="Username cannot be empty"
             return render_template('signup.html',error=error)
@@ -54,8 +54,6 @@ def signup():
             user.set_password(password)
             user.save()
             return redirect(url_for('auth.login'))
-        print(username)
-
     return render_template('signup.html')
 
 @auth.route('/logout')

@@ -6,13 +6,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="/home">View Projects</a>
+                    <a class="nav-item nav-link" href="{{url_for('main.projects')}}">View Projects</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/authentication/login">Login</a>
-                <a class="nav-item nav-link" href="/logout">Logout</a>
-                <a class="nav-item nav-link" href="/authentication/sign-up">Register</a>
+                <a class="nav-item nav-link" href="{{url_for('auth.login')}}">Login</a>
+                <a class="nav-item nav-link" href="{{url_for('auth.logout')}}">Logout</a>
+                <a class="nav-item nav-link" href="{{url_for('auth.signup')}}">Register</a>
             </div>
         </div>
 </nav>
