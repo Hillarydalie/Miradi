@@ -1,6 +1,7 @@
 {%extends 'base.html'%}
 {%block content%}
 {{super()}}
+<<<<<<< HEAD
 <div class="container mt-5 ">
     <div class="row">
         <div class="col-md-4"></div>
@@ -34,6 +35,34 @@
                     </div>
                     <button class="btn btn-indigo w-100" type="submit">Register</button>
                 </form>
+=======
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Miradi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+                    <!-- <a class="nav-item nav-link" href="/projects">View Projects</a> -->
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+
+                <a class="nav-item nav-link" href="/authentication/login">Login</a>
+                <!-- <a class="nav-item nav-link" href="/authentication/sign-up"></a> -->
+            </div>
+        </div>
+</nav>
+
+<div class="container">
+    <h2 class="text-center">Sign-Up</h2>
+    <form action="/authentication/sign-up" method="POST">
+        {%if error%}
+        <div class="alert alert-danger">
+            {{error}}
+>>>>>>> origin/dalie
         </div>
     </div>
 </div>
