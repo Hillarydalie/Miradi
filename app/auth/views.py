@@ -35,7 +35,7 @@ def signup():
         if username==None or password==None or email==None or confirm_password==None:
             error = "Fill in the fields"
             return render_template('signup.html',error=error)
-        
+
         if " " in username:
             error="Username cannot be empty"
             return render_template('signup.html',error=error)
