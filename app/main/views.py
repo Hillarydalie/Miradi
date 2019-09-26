@@ -5,9 +5,14 @@ from .. import db
 from app.models import *
 import requests
 
-@main.route('/')
+@main.route('/home')
+@login_required
 def index():
     return render_template('index.html')
+
+@main.route("/")
+def landing():
+    return render_template("home.html")
 
 
 @main.route('/projects', methods=['GET','POST'])

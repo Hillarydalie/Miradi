@@ -1,6 +1,6 @@
-{%extends 'base.html'%}
-{%block content%}
-{{super()}}
+{% extends 'base.html' %}
+
+{% block content %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -14,30 +14,11 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-
                 <a class="nav-item nav-link" href="/authentication/login">Login</a>
+                <!-- <a class="nav-item nav-link" href="/logout">Logout</a> -->
                 <a class="nav-item nav-link" href="/authentication/sign-up">Register</a>
             </div>
         </div>
 </nav>
 
-<div class="container">
-    <h1 class="text-center">Login</h1>
-    <form action="/authentication/login" method="POST">
-        {%if error%}
-        <div class="alert alert-danger">
-            {{ error }}
-        </div>
-        {%endif%}
-        <div class="form-group">
-            <label for="user name">User Name</label>
-            <input type="text" placeholder="username" name="username" required class="form-control" id="">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" placeholder="password" required id="">
-        </div>
-        <button class="btn" type="submit">Submit</button>
-    </form>
-</div>
-{%endblock%}
+{% endblock %}
