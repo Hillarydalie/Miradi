@@ -9,19 +9,17 @@ def login():
         form = request.form
         username = form.get('username')
         password = form.get('password')
-
         user = User.query.filter_by(username=username).first()
 
         if user==None:
-            error = "user with that username or password does not exist"
+            error = "User with that username or password does not exist"
             return render_template('login.html',error=error)
-        is_correct_password == user.check_password(password)
+        is_correct_password = user.check_password(password)
         if is_correct_password == False:
-            error = "Wrong password"
+            error = "User with that username or password does not exist"
             return render_template('login.html',error=error)
-        
         login_user(user)
-        return redirect(url_for('main.index'))
+        return redirect(url_for("main.index"))
     return render_template('login.html')
 
 @auth.route('/authentication/sign-up',methods=['GET','POST'])
@@ -53,9 +51,7 @@ def signup():
             user = User(username=username,email=email)
             user.set_password(password)
             user.save()
-            return redirect(url_for('auth.login'))
-        print(username)
-
+            return redirect(url_for("auth.login"))
     return render_template('signup.html')
 
 @auth.route('/logout')
