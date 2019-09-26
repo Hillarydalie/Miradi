@@ -5,9 +5,14 @@ from .. import db
 from app.models import *
 import requests
 
-@main.route('/')
+@main.route('/home')
+@login_required
 def index():
     return render_template('index.html')
+
+@main.route("/")
+def landing():
+    return render_template("home.html")
 
 
 @main.route('/projects', methods=['GET','POST'])
@@ -16,13 +21,13 @@ def projects():
         form = request.form
         name = form.get('name')
         progress = form.get('progress')
-        period = form.get('period')
-        image = form .get('image')
+        projectTimeline = form.get('projecttimeline')
+        project_photo = form .get('project_photo')
         description = form.get('description')
-        if name==None or progress==None or period==None or image==None or description==None:
+        if name==None or progress==None or projectTimeline==None or project_photo==None or description==None:
             error = "Kindly fill all fields to continue"
             return render_template('projects.html', error=error)
-        project = Projects(name=name,progress=progress,period=period,image=image,description=description, user_id=current_user.id)
+        project = Project(name=name,progress=progress,projectTimeline=projectTimeline,project_photo=project_photo,description=description, user_id=current_user.id)
         project.save()
         return redirect(url_for('main.index'))
     return render_template('projects.html')
