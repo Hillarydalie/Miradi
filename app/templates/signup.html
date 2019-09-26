@@ -1,6 +1,41 @@
 {%extends 'base.html'%}
 {%block content%}
 {{super()}}
+<<<<<<< HEAD
+<div class="container mt-5 ">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+                <h2 class="text-center card-header blue-gradient text-white">Register</h2>
+                <form action="/authentication/sign-up" method="POST">
+                    {%if error%}
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                    {%endif%}
+                    <div class="form-group md-form">
+                            <i class="fa fa-user prefix"></i>
+                            <label for="username">User Name</label>
+                            <input type="text"name="username" class="form-control" required id="">
+                        </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-envelope prefix"></i>
+                        <label for="email">Email</label>
+                        <input type="email"name="email" class="form-control" required id="">
+                    </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-lock prefix"></i>
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control"  name="password" required id="">
+                    </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-lock prefix"></i>
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password"  name="confirm_password" class="form-control" required id="">
+                    </div>
+                    <button class="btn btn-indigo w-100" type="submit">Register</button>
+                </form>
+=======
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
@@ -27,26 +62,9 @@
         {%if error%}
         <div class="alert alert-danger">
             {{error}}
+>>>>>>> origin/dalie
         </div>
-        {%endif%}
-        <div class="form-group">
-            <label for="user name">User Name</label>
-            <input type="text" name="username" class="form-control" placeholder="Enter your User Name" id="" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email"placeholder="Email" name="email" class="form-control" required id="">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" placeholder="Password" name="password" required id="">
-        </div>
-        <div class="form-group">
-            <label for="confirm-password">Confirm Password</label>
-            <input type="password" placeholder="confirm_password" name="confirm_password" class="form-control" required id="">
-        </div>
-        <button class="btn" type="submit">Submit</button>
-    </form>
+    </div>
 </div>
 {%endblock%}
     
