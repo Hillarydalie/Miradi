@@ -3,14 +3,14 @@ from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-class User(UserMixin, db.Model):
+class User(UserMixin,db.Model):
     __tablename__="users"
     id = db.Column(db.Integer, primary_key = True)
     username = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), unique = True)
     password = db.Column(db.String(255), nullable=False)
     user_image = db.Column(db.String(255))
-    projects = db.relationship('Project', backref='mradi', lazy=True)
+    projects = db.relationship('Project',backref='miradi',lazy=True)
     comments = db.relationship('Comment', backref='miradi', lazy=True)
 
     def save(self):
@@ -31,9 +31,9 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-    @login_manager.user_loader
-    def user_loader(self, user_id):
-        return User.query.get(user_id)
+@login_manager.user_loader
+def user_loader(user_id):
+    return User.query.get(user_id)
 
 class Project(db.Model):
     __tablename__="projects"
@@ -43,7 +43,7 @@ class Project(db.Model):
     projectTimeline = db.Column(db.String(255), nullable=False)
     project_photo = db.Column(db.String(255))
     description = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False)
     comment = db.relationship('Comment', backref='usercomment', lazy=True)
 
     def save(self):
