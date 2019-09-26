@@ -8,11 +8,20 @@ import requests
 @main.route('/home')
 @login_required
 def index():
-    return render_template('index.html')
+    projects = Project.query.all()
+    return render_template('index.html', projects=projects)
 
 @main.route("/")
 def landing():
     return render_template("home.html")
+
+
+@main.route('/projoprofile')
+@login_required
+def projoprofile():
+    projects = Project.query.all()
+    return render_template('projoprofile.html', projects=projects)
+
 
 
 @main.route('/projects', methods=['GET','POST'])
@@ -31,6 +40,19 @@ def projects():
         project.save()
         return redirect(url_for('main.index'))
     return render_template('projects.html')
+
+
+
+@main.route('/photo')
+@login_required
+def photo():
+    project = Project(name=name).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'images/{filename}'
+        project.project_photo = path
+        db.session.commit()
+        return redirect('main.projoprofile')
 
 
 @main.route('/profile', methods=['POST','GET'])
