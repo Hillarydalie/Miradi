@@ -3,7 +3,7 @@
 {{super()}}
 <div class="container">
     <h1 class="text-center">Login</h1>
-    <form action="/login" method="POST">
+    <form action="/authentication/login" method="POST">
         {%if error%}
         <div class="alert alert-danger">
             {{ error }}
@@ -17,7 +17,7 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" placeholder="password" required id="">
         </div>
-        <button type="submit" class="btn btn-success"></button>
+        <button class="btn" type="submit">Submit</button>
     </form>
 </div>
 {%endblock%}
