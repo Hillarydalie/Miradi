@@ -68,3 +68,9 @@ class Comment(db.Model):
 
     def __repr__(self):
         return f'Comment {self.date}'
+
+
+class Location:
+    self.id = id
+    self.country = country
+    self.city = city
