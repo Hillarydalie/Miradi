@@ -9,9 +9,9 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), unique = True)
     password = db.Column(db.String(255), nullable=False)
-    image =db.Column(db.Photo)
-    comments = db.relationship('Comment', backref='user', lazy='dynamic')
-    projects = db.relatiships('Project', backref='user', lazy='dynamic')
+    user_image = db.Column(db.String(255))
+    comments = db.relationship('Comment', backref='miradi', lazy='dynamic')
+    projects = db.relationship('Project', backref='miradi', lazy='dynamic')
 
     def save(self):
         db.session.add(self)
@@ -31,20 +31,31 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-    @login_manager.user_loader
-    def user_loader(self, user_id):
-        return User.query.get(user_id)
+@login_manager.user_loader
+def user_loader(user_id):
+    return User.query.get(user_id)
 
 class Project(db.Model):
     __tablename__="projects"
-    id = db.Column(db.Integer, primary_key = False)
+    id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(255), unique = False)
+    progress = db.Column(db.Text)
     projectTimeline = db.Column(db.String(255), nullable=False)
-    image = db.Column(db.Photo)
+    project_photo = db.Column(db.String(255))
     description = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    comments = db.relationship('Comment', backref='project', lazy='dynamic')
+    comments = db.relationship('Comment', backref='usercomment', lazy='dynamic')
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
     
+    def __repr__(self):
+        return f'Project {self.name}'
 
 class Comment(db.Model):
     __tablename__ = "comments"
@@ -52,4 +63,7 @@ class Comment(db.Model):
     date = db.Column(db.DateTime, default=datetime.time)
     report = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
-    project_id = db.Colum(db.Integer, db.ForeignKey('projects.id'), nullable = False)
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable = False)
+
+    def __repr__(self):
+        return f'Comment {self.date}'

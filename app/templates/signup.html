@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+{%block content%}
+{{super()}}
+<div class="container">
+    <h2 class="text-center">Sign-Up</h2>
+    <form action="/authentication/sign-up" method="POST">
+        {%if error%}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+        {%endif%}
+        <div class="form-group">
+            <label for="user name">User Name</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter your User Name" id="" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"placeholder="Email" name="email" class="form-control" required id="">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" placeholder="Password" name="password" required id="">
+        </div>
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" placeholder="confirm_password" name="confirm_password" class="form-control" required id="">
+        </div>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+</div>
+{%endblock%}
+    
