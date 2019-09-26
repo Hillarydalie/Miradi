@@ -9,6 +9,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://hillarydalie:password@localhost:5432/miradi'
 
 
+
 class DevConfig(Config):
     Debug = True
 
