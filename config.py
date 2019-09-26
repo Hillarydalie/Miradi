@@ -1,6 +1,8 @@
 class Config:
   
     DEBUG="True"
+    MAP_API_KEY = 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+    MAP_BASE_URL = 'https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings'
     SECRET_KEY='jklsjgkljskljgiorjiosnklfiowpnbriorbo'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     UPLOAD_PHOTOS_DEST = 'app/static/images'
