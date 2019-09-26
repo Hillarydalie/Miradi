@@ -31,9 +31,9 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-    @login_manager.user_loader
-    def user_loader(self, user_id):
-        return User.query.get(user_id)
+@login_manager.user_loader
+def user_loader(user_id):
+    return User.query.get(user_id)
 
 class Project(db.Model):
     __tablename__="projects"
