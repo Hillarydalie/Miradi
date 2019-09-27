@@ -2,40 +2,63 @@
 
 
 {% block content %}
-<div class="row">
-  <div class="col-md-12">
 
-    <form class="" action="/projects" method="post">
-      <div class="card">
-        <div class="card-header">
-          {% if error %}
-            <p class="alert-alert-danger text-center"></p>
-          {% endif %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">Miradi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="/projects">Add Projects</a>
+                    <a class="nav-item nav-link" href="/projoprofile">Project Profile</a>
+
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/logout">Logout</a>
+            </div>
         </div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <input class="form-control" type="text" name="name" value="Name" required>
+</nav>
+<div class="container-fluid pro">
+  <div class="overlay ">
+    <div class="container mt-5 pb-5">
+        <div class="row">
+            <div class="col-md-11 bg-white mt-5 ml-5">
+                <h2 class="text-center card-header blue-gradient text-white">Create Project</h2>
+                <form action="/projects" method="POST">
+                    {%if error%}
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                    {%endif%}
+                    <div class="form-group md-form">
+                            <i class="fa fa-user prefix"></i>
+                            <label for="username">Name</label>
+                            <input class="form-control" type="text" name="name" required>
+                        </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-spinner prefix fa-spin-hover"></i>
+                        <label for="email">Project Progress</label>
+                        <input class="form-control" type="text" name="progress" required>
+                    </div>
+                    <div class="form-group md-form">
+                        <i class="fa fa-calendar prefix"></i>
+                        <label for="password">Project Timeline</label>
+                        <input class="form-control" type="text" name="projecttimeline" required>
+                    </div>
+
+                    <div class="form-group md-form">
+                        <i class="fa fa-info prefix"></i>
+                        <label class="mt-5" for="confirm-password">Project Description</label>
+                        <textarea cols="60" rows="6" class="form-control" type="text" name="description" required></textarea>
+                    </div>
+                    <button class="btn blue-gradient w-100 pt-3 md-form md-form" type="submit">Add Project</button>
+                </form>
+            </div>
         </div>
-        <div class="form-group">
-          <input class="form-control" type="text" name="progress" value="Progress" required>
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="text" name="projecttimeline" value="Project Period" required>
-        </div>
-        <div class="form-group">
-          <input class="form-control" type="file" name="project_photo" value="Project Image" required>
-        </div>
-        <div class="form-group">
-          <textarea class="form-control" type="text" name="description" value="Project Description" required></textarea>
-        </div>
-      </div>
-      <div class="card-footer">
-        <div class="form-group">
-          <input class="form-control bg-success" type="submit" value="Add Project">
-        </div>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 {% endblock %}
