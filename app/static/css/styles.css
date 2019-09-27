@@ -1,0 +1,5 @@
+.card {
+    /*max-height: 75vh;*/
+    margin: 5px 0px 5px;
+    box-shadow: 13px 16px 10px -12px rgba(36,79,143,0.54);
+}
