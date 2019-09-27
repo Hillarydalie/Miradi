@@ -3,61 +3,82 @@
 
 {% block content %}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="/">Miradi</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="/projects">Add Projects</a>
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/logout">Logout</a>
-            </div>
-        </div>
-</nav>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/signup.css')}}">
 
-<div class="container mt-5 ">
+<section id="header">
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg sticky-top navabar-light">
+            <div class="container">
+                <a href="#" class="navbar-brand">MIRADI LOGO</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-iten active">
+                            <a href="/authentication/login" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-iten active">
+                            <a href="/authentication/sign-up" class="nav-link">Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+</section>
+
+<div class="container-fluid bg">
     <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center card-header blue-gradient text-white">Register</h2>
-            <form action="/projects" method="POST">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <form class="form-container" action="/projects" method="POST">
+                <h1>Register Your Projects</h1>
                 {%if error%}
                 <div class="alert alert-danger">
-                    {{error}}
+                    {{ error }}
                 </div>
                 {%endif%}
-                <div class="form-group md-form">
-                        <i class="fa fa-user prefix"></i>
-                        <label for="username">Name</label>
-                        <input class="form-control" type="text" name="name" required>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <i class="fa fa-user prefix"></i>
+                            <label for="username">Name of Project</label>
+                            <input class="form-control" type="text" name="name" required>
+                        </div>
+                        <div class="col">
+                            <i class="fa fa-envelope prefix"></i>
+                            <label for="email">Project Progress</label>
+                            <input class="form-control" type="text" name="progress" required>
+                        </div>
                     </div>
-                <div class="form-group md-form">
-                    <i class="fa fa-user prefix"></i>
-                    <label for="email">Project Progress</label>
-                    <input class="form-control" type="text" name="progress" required>
                 </div>
-                <div class="form-group md-form">
+                <div class="form-group">
                     <i class="fa fa-lock prefix"></i>
                     <label for="password">Project Timeline</label>
                     <input class="form-control" type="text" name="projecttimeline" required>
                 </div>
-                <div class="form-group md-form">
-                    <i class="fa fa-lock prefix"></i>
-                    <!-- <label for="confirm-password">Project Photo</label> -->
+                <div class="form-group">
+                    <!-- <i class="fa fa-lock prefix"></i> -->
+                    <label for="confirm-password">Project Photo</label>
                     <input class="form-control" type="file" name="project_photo" required>
                 </div>
-                <div class="form-group md-form">
+                <div class="form-group">
                     <i class="fa fa-lock prefix"></i>
-                    <label for="confirm-password">Project Description</label>
-                    <textarea class="form-control" type="text" name="description" required></textarea>
+                    <label for="password">Project Description</label>
+                    <textarea class="form-control" type="text" name="description" placeholder="Enter your projects dscription" required></textarea>
                 </div>
-                <button class="btn btn-indigo w-100" type="submit">Register</button>
-            </form>
+                <button class="btn btn-dark btn-block" type="submit">Register</button>
+                <!-- <div class="">
+                    <p class="redirect">Don't have an account? <a href="{{ url_for('auth.signup')}}">Sign-Up</a></p>
+                </div> -->
+                </form>
         </div>
+        <div class="col-md-2"></div>
     </div>
-</div>
+
 {% endblock %}
