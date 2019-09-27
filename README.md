@@ -1,5 +1,5 @@
 # Miradi
-- How many projects are going around where you stay? How if we found a way to help you in the process by using an app?
+- How many projects are going around where you stay? How if we found a way to help you in the process by using an app? 
 
 ### By Hillary Dalie , Mungai Keren, Irene Mercy, Leo Mwamto
 -  An app that allows users to post their blogs and comment on others posted by others.
@@ -14,13 +14,13 @@
 
 ## Screenshot
 
-![A screenshot of the app sign in page](http://oegkenya.ckadvocates.co.ke/images/signin.png "Sign In Page")
+![A screenshot of the app sign in page](http://oegkenya.ckadvocates.co.ke/images/Miradi.png "Sign In Page")
 
 
 ## Installation
  #### In Your Terminal:
 
-```git clone https://github.com/washucode/pitch```
+```git clone https://github.com/hillarydalie/miradi```
 
 ```cd pitch```
 

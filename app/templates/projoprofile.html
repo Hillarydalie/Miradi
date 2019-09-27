@@ -12,6 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="/projects">Add Projects</a>
+                    <a class="nav-item nav-link" href="/projoprofile">Project Profile</a>
 
             </div>
             <!-- Navbar Right Side -->
@@ -22,48 +23,48 @@
 </nav>
 
 
-  <div class="container-fluid auth">
-    <div class="overlay_auth">
+  <div class="container-full pro">
+    <div class="overlay">
       <div class="container">
         <div class="row">
           {% for project in projects %}
-          <div class="col-md-8 mt-3">
-            <div class="card">
-              <div class="card-header">
-                <h4>{{project.name}}</h4>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-4">
-                    <h5>Progress</h5>
-                    <p>{{project.progress}}</p>
+            <div class="col-md-8">
+                <div class="card">
+                  <!-- <img src="./static/images/kazi.jpg" class="card-img-top " alt="..." width="40%" height="40%"> -->
+                  <div class="card-body">
+                    <h5 class="card-title">{{project.name}}</h5>
+                    <p class="card-text">{{project.prog}}</p>
+                    <p class="card-text">{{project.description}}</p>
+                    <p class="card-text"><small class="text-muted">{{project.user_id}}</small></p>
                   </div>
-                  <div class="col-md-4">
-                    <h5>Description</h5>
-                    <p>{{project.description}}</p>
-                    </div>
+                  <div class="card-footer">
+                    {% for comment in comments %}
+                      <div class="card-header bg-light mt-5 pl-5">
+                        <p class="text-danger">{{comment.report}}. On {{comment.date.strftime('%y-%m-%d')}}.</p>
+                        <p></p>
+                      </div>
+                    {% endfor %}
+                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            {% if user.profile_pic_path %}
-        
-            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-        
-            {%else%}
-            <p>No profile picture</p>
-        
-            {% endif %}
-        
-                {% if user == current_user %}
-            <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
-        
-              <input type="file"  name="photo" class="form-control" required>
-              <input type="submit">
-            </form>
-              {% endif %}
-          </div>
+            <div class="col-md-4">
+              <div class="card">
+                  <div class="card-body">
+                    <form class="" action="{{url_for('main.photo',uname=project.name)}}" method="post">
+                      <i class="fa fa-file-image prefix fa-3x"></i>
+                      <h3>Change Project Image</h3>
+                      <div class="form-group md-form">
+                          <input class="form-control" type="file" name="project_photo" required>
+                          <input type="submit" value="Submit">
+                      </div>
+                    </form>
+                    <form  class="mt-3" action="{{url_for('main.projoprofile',project_id=project.id)}}" method="post">
+                       <input type="text" name="report" class="w-100">
+                       <input type="submit" value="Comment" class="btn btn-danger mt-1">
+                    </form>
+                  </div>
+                </div>
+            </div>
           {% endfor %}
         </div>
       </div>

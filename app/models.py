@@ -53,17 +53,26 @@ class Project(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
-    
+
     def __repr__(self):
         return f'Project {self.name}'
 
 class Comment(db.Model):
     __tablename__ = "comments"
     id = db.Column(db.Integer, primary_key = True)
-    date = db.Column(db.DateTime, default=datetime.time)
+    date = db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
     report = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
     project_id = db.Column(db.Integer, db.ForeignKey('projects.id'), nullable = False)
+
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
     def __repr__(self):
         return f'Comment {self.date}'
