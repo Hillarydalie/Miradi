@@ -7,36 +7,33 @@
 
 <section id="header">
 
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg sticky-top navabar-light">
-            <div class="container">
-                <a href="#" class="navbar-brand">MIRADI LOGO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Miradi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="/projects">Add Projects</a>
+                    <a class="nav-item nav-link" href="/projoprofile">Project Profile</a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-iten active">
-                            <a href="/authentication/login" class="nav-link">Login</a>
-                        </li>
-                        <li class="nav-iten active">
-                            <a href="/authentication/sign-up" class="nav-link">Register</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
-        </nav>
-    </div>
-    
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/logout">Logout</a>
+                <a class="nav-item nav-link" href="/authentication/login">Sign Up</a>
+            </div>
+        </div>
+</nav>
 </section>
 
 <div class="container-fluid bg">
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <form class="form-container" action="/projects" method="POST">
+            <form class="form-container form" action="/projects" method="POST">
                 <h1>Register Your Projects</h1>
                 {%if error%}
                 <div class="alert alert-danger">
@@ -51,7 +48,7 @@
                             <input class="form-control" type="text" name="name" required>
                         </div>
                         <div class="col">
-                            <i class="fa fa-envelope prefix"></i>
+                            <i class="fa fa-spinner prefix fa-spinner-hover"></i>
                             <label for="email">Project Progress</label>
                             <input class="form-control" type="text" name="progress" required>
                         </div>

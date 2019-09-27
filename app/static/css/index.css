@@ -10,5 +10,6 @@ div#carouselExampleCaptions {
 }
 
 .carousel-caption.d-none.d-md-block {
-    height: 70vh;
+    height: 120vh;
+    font-size: xx-large;
 }

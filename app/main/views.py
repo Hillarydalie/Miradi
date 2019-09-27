@@ -13,7 +13,8 @@ def index():
 
 @main.route("/")
 def landing():
-    return render_template("home.html")
+    projects =Project.query.all()
+    return render_template('index.html',projects=projects)
 
 
 @main.route('/projoprofile')

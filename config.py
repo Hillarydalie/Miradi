@@ -5,7 +5,7 @@ class Config:
     UPLOADED_PHOTOS_DEST = 'app/static/images'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     UPLOAD_PHOTOS_DEST = 'app/static/images'
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://joozao:12345@localhost:5432/miradi'
+    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://hillarydalie:password@localhost:5432/miradi'
 
 
 class DevConfig(Config):

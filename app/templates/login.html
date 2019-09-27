@@ -5,31 +5,25 @@
 
 <section id="header">
 
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg sticky-top navabar-light">
-            <div class="container">
-                <a href="#" class="navbar-brand">MIRADI LOGO</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Miradi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="/projects">Add Projects</a>
+                    <a class="nav-item nav-link" href="/projoprofile">Project Profile</a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-iten active">
-                            <a href="/home" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-iten active">
-                            <a href="/projects" class="nav-link">Projects</a>
-                        </li>
-                        <li class="nav-iten active">
-                            <a href="/logout" class="nav-link">Logout</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </nav>
-    </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/logout">Logout</a>
+                <a class="nav-item nav-link" href="/authentication/sign-up">Register</a>
+            </div>
+        </div>
+</nav>
     
 </section>
 
@@ -37,7 +31,7 @@
     <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
-            <form class="form-container" action="/authentication/login" method="POST">
+            <form class="form-container form" action="/authentication/login" method="POST">
                 <h1>Login Form</h1>
                 {%if error%}
                 <div class="alert alert-danger">
