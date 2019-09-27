@@ -12,6 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="/projects">Add Projects</a>
+                    <a class="nav-item nav-link" href="/projoprofile">Project Profile</a>
 
             </div>
             <!-- Navbar Right Side -->
@@ -22,12 +23,12 @@
 </nav>
 
 
-  <div class="container-fluid auth">
-    <div class="overlay_auth">
+  <div class="container-fluid pro">
+    <div class="overlay">
       <div class="container">
         <div class="row">
           {% for project in projects %}
-          <div class="col-md-12 mt-3">
+          <div class="col-md-8 mt-3">
             <div class="card">
               <div class="card-header">
                 <h4>{{project.name}}</h4>
@@ -41,12 +42,33 @@
                   <div class="col-md-4">
                     <h5>Description</h5>
                     <p>{{project.description}}</p>
-                    <img src="{{url_for('static', filename=project.project_photo)}}" alt="">
+                    <img src="{{project.project_photo}}" alt="">
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="col-md-4 card mt-3">
+            <form class="" action="{{url_for('main.photo',uname=project.name)}}" method="post">
+              <div class="form-group md-form">
+                  <i class="fa fa-file-image prefix"></i>
+                  <input class="form-control" type="file" name="project_photo" required>
+                  <input type="submit" value="Submit">
+              </div>
+            </form>
+            <form  class="mt-3" action="{{url_for('main.comment',project_id=project.id)}}" method="post">
+             <input type="text" name="report" class="w-100">
+             <input type="submit" value="Comment" class="btn btn-danger mt-1">
+           </form>
+          </div>
+          <p class="text-white">Comments:</p>
+            {% for comment in comments %}
+              <div class="card-header bg-light mt-5 pl-5">
+                <p class="text-danger">{{comment.report}}</p>
+                <p>{{comment.date.strftime('%y-%m-%d')}}</p>
+              </div>
+            {% endfor %}
+
           {% endfor %}
         </div>
       </div>
