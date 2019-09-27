@@ -12,7 +12,7 @@ manager.add_command('db',MigrateCommand)
 
 @manager.shell
 def add_shell_context():
-    return {"db":db,"User":User}
+    return {"db":db,"User":User,"Project":Project,"Comment":Comment}
 
 if __name__=="__main__":
     manager.run()

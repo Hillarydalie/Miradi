@@ -1,5 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
+
 .card {
     /*max-height: 75vh;*/
     margin: 5px 0px 5px;
     box-shadow: 13px 16px 10px -12px rgba(36,79,143,0.54);
 }
+
+
+.pro{
+  background-image: url(../images/ach.jpg);
+  background-position: bottom;
+  height:auto;
+  width: 100%;
+}
+.overlay{
+  background-color: black;
+  opacity: 0.9;
+  width: 100%;
+  height: auto;
+}
+.container{
+font-family: 'Bree Serif', serif;
+}
+
+.auth{
+  background-image: url(../images/ach.jpg);
+  background-position: bottom;
+  height:100vh;
+  width: 100%;
+}
+.overlay_auth{
+  background-color: black;
+  opacity: 0.9;
+  width: 100%;
+  height:100vh;
+}
+.fa-spin-hover{
+  -webkit-animation: fa-spin 2s infinite linear;
+  -moz-animation: fa-spin 2s infinite linear;
+  -o-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+
