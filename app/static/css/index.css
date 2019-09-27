@@ -1,0 +1,14 @@
+.bd-example {
+    height: 90vh;
+}
+
+div#carouselExampleCaptions {
+    height: 90vh;
+}
+.carousel-inner {
+    height: 90vh;
+}
+
+.carousel-caption.d-none.d-md-block {
+    height: 70vh;
+}
