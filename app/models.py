@@ -41,7 +41,7 @@ class Project(db.Model):
     name = db.Column(db.String(255), unique = False)
     progress = db.Column(db.Text)
     projectTimeline = db.Column(db.String(255), nullable=False)
-    project_photo = db.Column(db.String(255))
+    project_photo = db.Column(db.String(255), default='default.jpg')
     description = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
     comments = db.relationship('Comment', backref='usercomment', lazy='dynamic')

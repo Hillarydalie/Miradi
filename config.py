@@ -3,7 +3,7 @@ class Config:
     DEBUG="True"
     SECRET_KEY='jklsjgkljskljgiorjiosnklfiowpnbriorbo'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
-    UPLOAD_PHOTOS_DEST = 'app/static/images'
+    UPLOADED_PHOTOS_DEST ='app/static/images'
     SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://keren:kayren@localhost:5432/miradi'
 
 

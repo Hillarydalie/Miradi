@@ -1,7 +1,7 @@
 from flask import render_template, url_for,request,redirect, abort
 from flask_login import login_required,current_user, login_user, logout_user
 from . import main
-from .. import db
+from .. import db,photos
 from app.models import *
 import requests
 
@@ -41,12 +41,21 @@ def projects():
         return redirect(url_for('main.index'))
     return render_template('projects.html')
 
-
+@main.route('/project/<pname>/update/pic',methods= ['POST'])
+@login_required
+def update_pic(pname):
+    user = User.query.filter_by(username = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+    return redirect(url_for('main.profile',uname=uname))
 
 @main.route('/photo')
 @login_required
 def photo():
-    project = Project(name=name).first()
+    project = Project.query.filter_by(name=name).first()
     if 'photo' in request.files:
         filename = photos.save(request.files['photo'])
         path = f'images/{filename}'
