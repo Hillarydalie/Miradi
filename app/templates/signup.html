@@ -1,65 +1,69 @@
 {%extends 'base.html'%}
 {%block content%}
 {{super()}}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/signup.css')}}">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="/">Miradi</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto">
-                    <!-- <a class="nav-item nav-link" href="/projects">View Projects</a> -->
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
 
-                <a class="nav-item nav-link" href="/authentication/login">Login</a>
-                <!-- <a class="nav-item nav-link" href="/authentication/sign-up"></a> -->
-            </div>
-        </div>
-</nav>
+<section id="header">
 
-<div class="container-fluid auth">
-  <div class="overlay_auth">
-    <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-4">
-          </div>
-            <div class="col-md-4 mt-5 pb-3 bg-white">
-                <h2 class="text-center card-header blue-gradient text-white">Register</h2>
-                <form action="/authentication/sign-up" method="POST">
-                    {%if error%}
-                    <div class="alert alert-danger">
-                        {{error}}
-                    </div>
-                    {%endif%}
-                    <div class="form-group md-form mt-5">
-                            <i class="fa fa-user prefix"></i>
-                            <label for="username">User Name</label>
-                            <input type="text"name="username" class="form-control" required id="">
-                        </div>
-                    <div class="form-group md-form mt-5">
-                        <i class="fa fa-envelope prefix"></i>
-                        <label for="email">Email</label>
-                        <input type="email"name="email" class="form-control" required id="">
-                    </div>
-                    <div class="form-group md-form mt-5">
-                        <i class="fa fa-lock prefix"></i>
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control"  name="password" required id="">
-                    </div>
-                    <div class="form-group md-form mt-5">
-                        <i class="fa fa-lock prefix"></i>
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password"  name="confirm_password" class="form-control" required id="">
-                    </div>
-                    <button class="btn btn-lg blue-gradient md-form    w-100 mt-5 " type="submit">Register</button>
-                </form>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg sticky-top navabar-light">
+            <div class="container">
+                <a href="#" class="navbar-brand">MIRADI LOGO</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="#navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-iten active">
+                            <a href="/authentication/login" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-iten active">
+                            <a href="/authentication/sign-up" class="nav-link">Register</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </nav>
     </div>
-  </div>
-</div>
+    
+</section>
+<div class="container-fluid bg">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form class="form-container" action="/authentication/login" method="POST">
+                <h1>Sign Up</h1>
+                {%if error%}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+                {%endif%}
+                <div class="form-group">
+                        <i class="fa fa-user prefix"></i>
+                        <label for="username">User Name</label>
+                        <input type="text"name="username" class="form-control" required id="">
+                    </div>
+                <div class="form-group">
+                    <i class="fa fa-envelope prefix"></i>
+                    <label for="email">Email</label>
+                    <input type="email"name="email" class="form-control" required id="">
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-lock prefix"></i>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control"  name="password" required id="">
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-lock prefix"></i>
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password"  name="confirm_password" class="form-control" required id="">
+                </div>
+                <button class="btn btn-dark btn-block" type="submit">Register</button>
+                </form>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 {%endblock%}

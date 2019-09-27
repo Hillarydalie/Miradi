@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
+
+.card {
+    /*max-height: 75vh;*/
+    margin: 5px 0px 5px;
+    box-shadow: 13px 16px 10px -12px rgba(36,79,143,0.54);
+}
+
+
 .pro{
   background-image: url(../images/ach.jpg);
   background-position: bottom;
@@ -35,3 +43,4 @@ font-family: 'Bree Serif', serif;
   -o-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
 }
+

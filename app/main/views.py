@@ -8,8 +8,8 @@ import requests
 @main.route('/home')
 @login_required
 def index():
-    projects = Project.query.all()
-    return render_template('index.html', projects=projects,)
+    projects =Project.query.all()
+    return render_template('index.html',projects=projects)
 
 @main.route("/")
 def landing():
@@ -42,8 +42,6 @@ def projects():
         return redirect(url_for('main.index'))
     return render_template('projects.html')
 
-
-
 @main.route('/photo/<uname>', methods=['POST','GET'])
 @login_required
 def photo(uname):
@@ -54,6 +52,7 @@ def photo(uname):
         project.project_photo = path
         db.session.commit()
     return redirect(url_for('main.projoprofile', uname=uname))
+
 
 
 @main.route('/profile', methods=['POST','GET'])
