@@ -14,7 +14,7 @@
 
 ## Screenshot
 
-![A screenshot of the app sign in page](http://oegkenya.ckadvocates.co.ke/images/signin.png "Sign In Page")
+![A screenshot of the app sign in page](http://oegkenya.ckadvocates.co.ke/images/Miradi.png "Sign In Page")
 
 
 ## Installation
