@@ -8,7 +8,8 @@ import requests
 @main.route('/home')
 @login_required
 def index():
-    return render_template('index.html')
+    projects =Project.query.all()
+    return render_template('index.html',projects=projects)
 
 @main.route("/")
 def landing():
@@ -31,7 +32,6 @@ def projects():
         project.save()
         return redirect(url_for('main.index'))
     return render_template('projects.html')
-
 
 @main.route('/profile', methods=['POST','GET'])
 @login_required
